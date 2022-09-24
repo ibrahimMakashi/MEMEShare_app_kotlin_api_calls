@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,9 @@ class MainActivity : AppCompatActivity() {
     private fun loadmeme() {
         // Initializing a progress bar which
         // gets disabled whenever image is loaded.
+        val share = findViewById<FloatingActionButton>(R.id.shareButton)
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
+       share.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
         val meme: ImageView = findViewById(R.id.memeImageView)
 
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
+                        share.visibility = View.VISIBLE
                         return false
                     }
 
@@ -67,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                         isFirstResource: Boolean
                     ): Boolean {
                         progressBar.visibility = View.GONE
+                        share.visibility = View.VISIBLE
                         return false
 
                     }
